@@ -4,7 +4,7 @@
 
 
 #  Author
-*  Khalid Hashi
+*  Khalid Hashi             
 
 
 #  pre-requisites
@@ -21,4 +21,3 @@
 # contributers
 
 * one  
-          
