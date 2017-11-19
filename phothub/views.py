@@ -22,7 +22,7 @@ def search_results(request):
 
 def post(request,post_id):
     try:
-        post = Article.objects.get(id = post_id)
+        post = Post.objects.get(id = post_id)
     except DoesNotExist:
         raise Http404()
     return render(request,"all_pics/post.html", {"post":post})
