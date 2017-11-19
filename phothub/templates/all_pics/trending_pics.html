@@ -5,19 +5,21 @@
 <div class="container">
 
   <!-- Looping through news   -->
-  {% for photo_item in phothub %}
+  {% for photo_item in posts %}
 
   <div class="row">
-    <!-- displaying News articles -->
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <h2 class="text-center"> {{ photo_item.title }} </h2>
+
+    <div class="col-md-4">
+      <div calss="thumbnail">
+        <img src="{{photo_item.post_image.url}}" class="img-responsive"style="width:100%">
     </div>
+    
 
   </div>
 
   {% empty %}
   <div class="row">
-    <h2 class="text-center">There No News Items</h2>
+    <h2 class="text-center">There are no  photos </h2>
   </div>
   {% endfor %}
 

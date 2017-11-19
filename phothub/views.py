@@ -1,11 +1,12 @@
 from django.shortcuts import render
 import datetime as dt
-from .models import Post
+from .models import Post,tags,User
 
-def trending_pics(request):
+def trending_pics(request):    
     date = dt.date.today()
-    photos = Post.todays_photos()
-    return render(request, 'all_pics/trending_pics.html', {"date": date,"photos":photos})
+    posts = Post.todays_posts()
+    all_posts = Post.display_post()
+    return render(request, 'all_pics/trending_pics.html', {"date": date,"posts":posts,"all_posts": all_posts })
 def search_results(request):
 
     if 'post' in request.GET and request.GET["post"]:

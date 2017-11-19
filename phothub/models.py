@@ -26,14 +26,29 @@ class Post(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     post_image = models.ImageField(upload_to = 'posts/')
 
+    def save_post(self):
+        self.save()
+
+    def delete_post(self):
+        self.delete()
+
+    @classmethod
+    def display_post(cls):
+        all_posts = Post.objects.all()
+        return all_posts
+
+    @classmethod
+    def new_posts(cls):
+        today = dt.date.today()
+        posts = cls.objects.filter(pub_date__date = today)
 
     @classmethod
     def search_by_tag(cls,search_term):
-        pics = cls.objects.filter(tags__icontains=search_term)
+        pics = cls.objects.filter(title__icontains=search_term)
         return pics
 
     @classmethod
-    def todays_photos(cls):
+    def todays_posts(cls):
         today = dt.date.today()
-        photos= cls.objects.filter(pub_date__date = today)
-        return photos
+        posts= cls.objects.filter(pub_date__date = today)
+        return posts

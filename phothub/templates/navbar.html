@@ -1,11 +1,14 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="{% url 'photosToday' %}">The Photo Hub</a>
+        <a class="navbar-brand" >The Photo Hub</a>
       </div>
+      <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'photosToday' %}">Home</a></li>
+    </ul>
 
       <!-- Adding a search form  -->
-      <div class="col-sm-4 col-md-4 navbar-right">
+      <div class="col-sm-4 col-md-4 navbar-left">
 
         <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
@@ -18,6 +21,6 @@
 
         </form>
       </div>
-      <!-- search form end -->      
+      <!-- search form end -->
     </div>
   </nav>
