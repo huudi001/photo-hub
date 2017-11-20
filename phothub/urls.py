@@ -7,7 +7,8 @@ from django.conf import settings
 urlpatterns=[
     url(r'^$',views.trending_pics,name='photosToday'),
      url(r'^search/', views.search_results, name='search_results'),
-     url(r'^post/(\d+)',views.post,name ='post')
+     url(r'^post/(\d+)',views.post,name ='post'),
+     url(r'^archives/(\d{4}-\d{2}-\d{2})/$',views.past_days_posts,name = 'pastPosts')
 
 
 ]

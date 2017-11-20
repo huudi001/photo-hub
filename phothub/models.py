@@ -36,19 +36,18 @@ class Post(models.Model):
     def display_post(cls):
         all_posts = Post.objects.all()
         return all_posts
-
-    @classmethod
-    def new_posts(cls):
-        today = dt.date.today()
-        posts = cls.objects.filter(pub_date__date = today)
-
     @classmethod
     def search_by_tag(cls,search_term):
-        pics = cls.objects.filter(title__icontains=search_term)
-        return pics
+        posts = cls.objects.filter(tags__icontains=search_term)
+        return posts
 
     @classmethod
     def todays_posts(cls):
         today = dt.date.today()
         posts= cls.objects.filter(pub_date__date = today)
+        return posts
+
+    @classmethod
+    def days_posts(cls,date):
+        posts = cls.objects.filter(pub_date__date = date)
         return posts

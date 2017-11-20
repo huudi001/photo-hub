@@ -1,4 +1,4 @@
-{%extends 'all-pics/base.html'%}
+{%extends 'all_pics/base.html'%}
 
  {% block content %}
 
@@ -7,7 +7,7 @@
    <div class="row">
      <img src="{{post.post_image.url}}"  class="img-responsive" alt="">
    </div>
-   
+
 
    <div class="row">
      <p>Posted {{post.pub_date|timesince}} by {{post.user.first_name}}</p>

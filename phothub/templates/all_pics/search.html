@@ -2,7 +2,7 @@
 <div class="container">
 
   <div class="row">
-    {% if all_posts %}
+    {% if posts %}
       <h2>Found {{ Post|length }} of searched term {{message}}</h2>
     {% else %}
       <h2> Found 0 posts for the search term {{message}}</h2>
@@ -13,9 +13,9 @@
   <div class="row">
 
   {% if posts %}
-    {% for photo in posts %}
+    {% for post in posts %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{photo.tags}}</h1>
+          <h1>{{post.tags}}</h1>
       </div>
     {% endfor %}
   {% endif %}
