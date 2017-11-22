@@ -1,28 +1,33 @@
 {%extends 'all_pics/base.html'%}
 {% block content %}
 {{ block.super}}
-
-<div class="container">
-
-  <!-- Looping through news   -->
-  {% for photo_item in posts %}
-
-  <div class="row">
-
-    <div class="col-md-4">
-      <div calss="thumbnail">
-        <img src="{{photo_item.post_image.url}}" class="img-responsive"style="width:100%">
-    </div>
-
-
-  </div>
-
-  {% empty %}
-  <div class="row">
-    <h2 class="text-center">There are no  photos </h2>
-  </div>
-  {% endfor %}
-
+<div class="row">
+    {% for tag in tag %}
+      <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+        <h4 class="text-center">{{tag.name}}</h4>
+          <a href="{% url 'tag' tag.id %}">{{ tag.name}}</a>
+      </div>
+    {% endfor %}
 </div>
+<div class="container" id="beauty">
+        <h1 id="unsplash">Unsplash</h1>
+        <p class="content">Beautiful,free photos.</p>
+        <p >Gifted by the world’s most generous community of photographers. 🎁</p>
+        <button class="btn">Submit a photo</button>
+  </div>
+  <div class="container">
+        <div class="row">
+          <h3>Trending</h3>
+          <h3>New<br><p>.<p></h3>
+          <i class="glyphicon glyphicon-th-large"></i>
+          <i class="glyphicon glyphicon-pause"></i>
+        </div>
 
-{% endblock %}
+  <div class="row" id="all">
+          {% for post in posts %}
+            <div class="col-sm-6 col-md-4 col-lg-4">
+              <a href="{% url 'post' post.id %}"><img src="{{post.post_image.url}}" class="img-responsive" alt="{{post.title}}" i><button class="btn" i><i class="glyphicon glyphicon-arrow-down"></i></button></a>
+            </div>
+          {% endfor %}
+  </div>
+  {% endblock %}

@@ -12,11 +12,15 @@
 
   <div class="row">
 
-  {% if posts %}
-    {% for post in posts %}
+  {% if post %}
+    {% for posts in post %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{post.tags}}</h1>
-      </div>
+        <a href="{% url 'post' posts.id%}">
+
+            <img src="{{posts.image.url}}" alt="{{posts.name}}" class="img-responsive">
+
+        </a>
+
     {% endfor %}
   {% endif %}
   </div>

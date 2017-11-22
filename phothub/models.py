@@ -9,14 +9,30 @@ class User(models.Model):
     def __str__(self):
         return self.first_name
 
+    @classmethod
+    def get_users(cls):
+        users = User.objects.all()
+        return users
+
     class Meta:
         ordering = ['first_name']
 
 class tags(models.Model):
     name = models.CharField(max_length =30)
+    tag_image = models.ImageField(upload_to = 'tags/')
 
     def __str__(self):
         return self.name
+    @classmethod
+    def search_by_tag(cls,search_term):
+        tags = cls.objects.filter(name__icontains=search_term)
+        return tags
+    @classmethod
+    def get_tags(cls):
+        all_tags = tags.objects.all()
+        return all_tags
+    def delete_tag(self):
+        self.delete
 
 class Post(models.Model):
     title = models.CharField(max_length =60)
@@ -36,10 +52,6 @@ class Post(models.Model):
     def display_post(cls):
         all_posts = Post.objects.all()
         return all_posts
-    @classmethod
-    def search_by_tag(cls,search_term):
-        posts = cls.objects.filter(tags__icontains=search_term)
-        return posts
 
     @classmethod
     def todays_posts(cls):
