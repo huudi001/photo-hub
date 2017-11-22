@@ -15,9 +15,9 @@
   {% if post %}
     {% for posts in post %}
       <div class="col-sm-6 col-md-3">
-        <a href="{% url 'post' posts.id%}">
+        <a href="{% url 'post' post.id %}">
 
-            <img src="{{posts.image.url}}" alt="{{posts.name}}" class="img-responsive">
+            <img src="{{posts.post_image.url}}" alt="{{posts.name}}" class="img-responsive">
 
         </a>
 
