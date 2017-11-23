@@ -1,16 +1,18 @@
 {%extends 'all_pics/base.html'%}
+{% load bootstrap3}
 {% block content %}
-{{ block.super}}
+{{bock.super}}
+
 <div class="row">
     {% for tag in tag %}
       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
-      
-          <a href="{% url 'tag' tag.id %}">{{ tag.name}}</a>
-      </div>
-    {% endfor %}
+
+          <a href="{% url 'tag' tag.id %}"><img src="{{tag.tag_image.url}}" class="img-circle" alt="Cinque Terre" width="104" height="56">{{ tag.name }}</a>
+     </div>
+     {% endfor %}
 </div>
-<div class="container" id="beauty">
-        <h1 id="unsplash">Unsplash</h1>
+<div class="container" >
+        <h1>Unsplash</h1>
         <p class="content">Beautiful,free photos.</p>
         <p >Gifted by the world’s most generous community of photographers. 🎁</p>
         <button class="btn">Submit a photo</button>
@@ -18,12 +20,11 @@
   <div class="container">
         <div class="row">
           <h3>Trending</h3>
-          <h3>New<br><p>.<p></h3>
           <i class="glyphicon glyphicon-th-large"></i>
           <i class="glyphicon glyphicon-pause"></i>
         </div>
 
-  <div class="row" id="all">
+  <div class="row">
           {% for post in posts %}
             <div class="col-sm-6 col-md-4 col-lg-4">
               <a href="{% url 'post' post.id %}"><img src="{{post.post_image.url}}" class="img-responsive" alt="{{post.title}}" i><button class="btn" i><i class="glyphicon glyphicon-arrow-down"></i></button></a>

@@ -32,7 +32,7 @@ def search_results(request):
         post = Post.objects.filter(tags=single_tag).all()
         message = f"{search_term}"
 
-        return render(request, 'all_pics/search.html',{"title": title, "message":message, "post":post, "tags":searched_tags})
+        return render(request, 'all_pics/search.html',{"message":message, "post":post, "tags":searched_tags})
 
     else:
         message = "You haven't searched for any term"
